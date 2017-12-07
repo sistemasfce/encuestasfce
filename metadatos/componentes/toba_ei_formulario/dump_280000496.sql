@@ -3995,7 +3995,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --carga_consulta_php
 	NULL, --carga_sql
 	'encuestasfce', --carga_fuente
-	'2018,2017,2016,2015', --carga_lista
+	'2018,2017,2016,2015,2014,2013,2012', --carga_lista
 	NULL, --carga_col_clave
 	NULL, --carga_col_desc
 	NULL, --carga_maestros
