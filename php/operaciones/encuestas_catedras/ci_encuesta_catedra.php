@@ -122,12 +122,13 @@ class ci_encuesta_catedra extends encuestasfce_ci
 		if (!isset($docentes[0])) {
 			return;
 		}
-		
 		foreach ($docentes as $doc) {
 					$fila['responsabilidad_nombre'] = $doc['responsabilidad'];
 					$fila['apex_ei_analisis_fila'] = 'A';
-					$fila['docente'] = $doc['docente']['docente'];
-					$fila['nombre'] = $doc['docente']['apellido']. ', '.$doc['docente']['nombres'];
+					#$fila['docente'] = $doc['docente']['docente'];
+					$fila['docente'] = $doc['docente'];
+					#$fila['nombre'] = $doc['docente']['apellido']. ', '.$doc['docente']['nombres'];
+					$fila['nombre'] = $doc['apellido']. ', '.$doc['nombres'];
 					$aux[] = $fila;
 		}
 		$form_ml->set_datos($aux);
