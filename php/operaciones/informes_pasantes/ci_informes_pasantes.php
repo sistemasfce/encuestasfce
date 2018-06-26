@@ -29,7 +29,7 @@ class ci_informes_pasantes extends encuestasfce_ci
             $this->dep('relacion')->resetear();
             $hash = toba::memoria()->get_dato('hash');
             $cliente = toba::servicio_web_rest('guarani')->guzzle();
-            $request =  $cliente->put('informespasantes/'. $hash);
+            $request =  $cliente->put('encuestascatedras/'. $hash);
             self::validar_response($request, 204, __FUNCTION__);
             toba::notificacion()->agregar('Los datos se guardaron correctamente.','info');
 
@@ -63,7 +63,7 @@ class ci_informes_pasantes extends encuestasfce_ci
         // llega por parametro el hash utilizado por la tabla gde_encuestas_pendientes
         // con este hash tengo que obtener el id persona y devolverlos
         $cliente = toba::servicio_web_rest('guarani')->guzzle();
-        $request = $cliente->get('informespasantes/'. $hash);
+        $request = $cliente->get('encuestascatedras/'. $hash);
         //$response = $request->send();
         $resultado = rest_decode($request->json());       
 
