@@ -125,9 +125,6 @@ class ci_encuesta_catedra extends encuestasfce_ci
                 $datos_comision = toba::memoria()->get_dato('datos_comision');
                 
                 $docentes = $datos_comision['docentes'];
-                ei_arbol($docentes);
-		
-		//$docentes = $this->get_docentes_ws($comision);
 		
 		if (!isset($docentes[0])) {
 			return;
