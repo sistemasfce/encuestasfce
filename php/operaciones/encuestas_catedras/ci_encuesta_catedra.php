@@ -47,7 +47,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
 		$this->dep('relacion')->resetear();
 	}
 
-        function ini()
+        function ini_operacion()
         {
  		$param = toba::memoria()->get_parametros();
 		$hash = $param['c']; 
