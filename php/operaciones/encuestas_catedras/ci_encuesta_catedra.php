@@ -47,44 +47,59 @@ class ci_encuesta_catedra extends encuestasfce_ci
 		$this->dep('relacion')->resetear();
 	}
 
+        function ini()
+        {
+ 		$param = toba::memoria()->get_parametros();
+		$hash = $param['c']; 
+		toba::memoria()->set_dato('hash',$hash);
+ 
+                if (!isset($hash)) {
+			return;
+		}
+                
+                //--------------------------------------------------------------
+		// llega por parametro el hash utilizado por la tabla gde_encuestas_pendientes
+		// con este hash tengo que obtener el id comision y el id persona y devolverlos
+		$cliente = toba::servicio_web_rest('guarani')->guzzle();
+		$request = $cliente->get('encuestascatedras/'. $hash);
+		//$response = $request->send();
+		$encuesta = rest_decode($request->json());       
+                        
+		$comision = $encuesta['comision'];
+		$persona = $encuesta['persona'];                
+                
+		//--------------------------------------------------------------	
+		//$cliente = toba::servicio_web_rest('guarani')->guzzle();
+		$request = $cliente->get('comisiones/'. $comision);
+		//$response = $request->send();
+		$datos_comision = rest_decode($request->json());
+                
+                toba::memoria()->set_dato('persona',$persona);
+                toba::memoria()->set_dato('comision',$comision);
+                toba::memoria()->set_dato('datos_comision',$datos_comision);
+                
+        }
+        
 	//-----------------------------------------------------------------------------------
 	//---- form -------------------------------------------------------------------------
 	//-----------------------------------------------------------------------------------
 
 	function conf__form(encuestasfce_ei_formulario $form)
 	{ 
-		$param = toba::memoria()->get_parametros();
-		$hash = $param['c']; 
-		toba::memoria()->set_dato('hash',$hash);
+		$hash = toba::memoria()->get_dato('hash');
 
 		if (!isset($hash)) {
 			$this->evento('procesar')->desactivar();
 			return;
 		}
-		
-		//--------------------------------------------------------------
-		// llega por parametro el hash utilizado por la tabla gde_encuestas_pendientes
-		// con este hash tengo que obtener el id comision y el id persona y devolverlos
-		$cliente = toba::servicio_web_rest('guarani')->guzzle();
-		$request = $cliente->get('encuestascatedras/'. $hash);
-		//$response = $request->send();
-		$resultado = rest_decode($request->json());       
-		
-		$comision = $resultado['comision'];
-		$persona = $resultado['persona'];
-		
-		//--------------------------------------------------------------
-			
-		//$cliente = toba::servicio_web_rest('guarani')->guzzle();
-		$request = $cliente->get('comisiones/'. $comision);
-		//$response = $request->send();
-		$res = rest_decode($request->json());
 
-		//--------------------------------------------------------------
-		
-		$datos['comision'] = $res['comision'];
+                $datos_comision = toba::memoria()->get_dato('datos_comision');
+                $persona = toba::memoria()->get_dato('persona');
+                
+		//--------------------------------------------------------------		
+		$datos['comision'] = $datos_comision['comision'];
 		$datos['persona'] = $persona;
-		$datos['comision_nombre'] = $res['catedra']. ' - ' .$res['nombre'];
+		$datos['comision_nombre'] = $datos_comision['catedra']. ' - ' .$datos_comision['nombre'];
 		$form->set_datos($datos);
 
 	}
@@ -101,23 +116,18 @@ class ci_encuesta_catedra extends encuestasfce_ci
 	{
 		//Recibe por parametro el numero de comision y con un webservice busca los docentes
 		//Carga los docentes en el form_ml
-		//--------------------------------------------------------------
-		//$param = toba::memoria()->get_parametros();
-		//$hash = $param['c'];   
 		$hash = toba::memoria()->get_dato('hash');
 		
 		if (!isset($hash))
 			return;
+		   
+		$comision = toba::memoria()->get_dato('comision');	
+                $datos_comision = toba::memoria()->get_dato('datos_comision');
+                
+                $docentes = $datos_comision['docentes'];
+                ei_arbol($docentes);
 		
-		$cliente = toba::servicio_web_rest('guarani')->guzzle();
-		$request = $cliente->get('encuestascatedras/'. $hash);
-		//$response = $request->send();
-		$resultado = rest_decode($request->json());       
-		
-		$comision = $resultado['comision'];
-		
-		
-		$docentes = $this->get_docentes_ws($comision);
+		//$docentes = $this->get_docentes_ws($comision);
 		
 		if (!isset($docentes[0])) {
 			return;
@@ -126,8 +136,8 @@ class ci_encuesta_catedra extends encuestasfce_ci
 		foreach ($docentes as $doc) {
 					$fila['responsabilidad_nombre'] = $doc['responsabilidad'];
 					$fila['apex_ei_analisis_fila'] = 'A';
-					$fila['docente'] = $doc['docente']['docente'];
-					$fila['nombre'] = $doc['docente']['apellido']. ', '.$doc['docente']['nombres'];
+					$fila['docente'] = $doc['docente'];
+					$fila['nombre'] = $doc['apellido']. ', '.$doc['nombres'];
 					$aux[] = $fila;
 		}
 		$form_ml->set_datos($aux);
@@ -138,21 +148,6 @@ class ci_encuesta_catedra extends encuestasfce_ci
 	{
 		$this->tabla('encuestas_catedras_docentes')->procesar_filas($datos);
 	}
-	/*
-	function get_docentes($id){
-		
-		$sql = "SELECT sga_docentes_comision.docente,
-			mdp_personas.apellido || ', '  || mdp_personas.nombres as nombre,
-			sga_docentes_responsabilidades.nombre as responsabilidad_nombre,
-			sga_docentes_comision.responsabilidad
-			FROM sga_docentes_comision LEFT OUTER JOIN sga_docentes ON (sga_docentes_comision.docente = sga_docentes.docente)
-			LEFT OUTER JOIN mdp_personas ON (sga_docentes.persona = mdp_personas.persona)
-			LEFT OUTER JOIN sga_docentes_responsabilidades ON (sga_docentes_comision.responsabilidad = sga_docentes_responsabilidades.responsabilidad)
-			WHERE comision = ".$id. 'ORDER BY responsabilidad, nombre';
-		return toba::db('guarani')->consultar($sql);
-		
-	}
-	*/
 	
 	function get_docentes_ws($id)
 	{
