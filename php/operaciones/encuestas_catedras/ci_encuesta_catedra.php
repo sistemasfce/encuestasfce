@@ -27,9 +27,11 @@ class ci_encuesta_catedra extends encuestasfce_ci
     function evt__procesar()
     {
         try {
+            $param = toba::memoria()->get_parametros();
+            $hash = $param['c']; 
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
-            $hash = toba::memoria()->get_dato_operacion('hash');
+            //$hash = toba::memoria()->get_dato('hash');
             $cliente = toba::servicio_web_rest('guarani')->guzzle();
             $request =  $cliente->put('encuestascatedras/'. $hash);
             self::validar_response($request, 204, __FUNCTION__);
@@ -55,7 +57,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
         $param = toba::memoria()->get_parametros();
         self::debug_to_console( $param );
         $hash = $param['c']; 
-        toba::memoria()->set_dato_operacion('hash',$hash);
+        toba::memoria()->set_dato('hash',$hash);
 
         if (!isset($hash)) {
             return;
@@ -98,7 +100,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
         //Recibe por parametro el numero de comision y con un webservice busca los docentes
         //Carga los docentes en el form_ml
          
-        $hash = toba::memoria()->get_dato_operacion('hash');
+        $hash = toba::memoria()->get_dato('hash');
         if (!isset($hash))
             return;
 
