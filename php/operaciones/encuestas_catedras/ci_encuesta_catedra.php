@@ -99,6 +99,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
             return;
         }
         */
+        
         //$datos_comision = toba::memoria()->get_dato('datos_comision');
         //$persona = toba::memoria()->get_dato('persona');
 
