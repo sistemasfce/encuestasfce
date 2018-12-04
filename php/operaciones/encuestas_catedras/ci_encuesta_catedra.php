@@ -24,7 +24,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
     //---- Eventos ----------------------------------------------------------------------
     //-----------------------------------------------------------------------------------
 
-    function ini()
+    function conf()
     {
         $param = toba::memoria()->get_parametros();
         self::debug_to_console( $param );
