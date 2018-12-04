@@ -24,23 +24,31 @@ class ci_encuesta_catedra extends encuestasfce_ci
     //---- Eventos ----------------------------------------------------------------------
     //-----------------------------------------------------------------------------------
 
+    function ini()
+    {
+        $param = toba::memoria()->get_parametros();
+        self::debug_to_console( $param );
+        $hash = $param['c']; 
+        toba::memoria()->set_dato('hash',$hash);
+    }
+    
     function evt__procesar()
     {
         try {
-            $param = toba::memoria()->get_parametros();
-            $hash = $param['c']; 
+
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
-            //$hash = toba::memoria()->get_dato('hash');
+            $hash = toba::memoria()->get_dato('hash');
             $cliente = toba::servicio_web_rest('guarani')->guzzle();
             $request =  $cliente->put('encuestascatedras/'. $hash);
             self::validar_response($request, 204, __FUNCTION__);
             toba::notificacion()->agregar('Los datos se guardaron correctamente.','info');
+            toba::vinculador()->navegar_a("encuestasfce","280000182");
         } catch (Exception $e) {
             toba::logger()->error('Error en put, el hash es: '.$hash);
             echo 'Error en put: '.  $e->getMessage(). "\n";
         }
-        toba::vinculador()->navegar_a("encuestasfce","280000182");
+        
     }
 
     function evt__cancelar()
@@ -54,11 +62,10 @@ class ci_encuesta_catedra extends encuestasfce_ci
 
     function conf__form(encuestasfce_ei_formulario $form)
     { 
-        $param = toba::memoria()->get_parametros();
-        self::debug_to_console( $param );
-        $hash = $param['c']; 
-        toba::memoria()->set_dato('hash',$hash);
-
+        //$param = toba::memoria()->get_parametros();
+        //$hash = $param['c']; 
+        //toba::memoria()->set_dato('hash',$hash);
+        $hash = toba::memoria()->get_dato('hash');
         if (!isset($hash)) {
             return;
         }
