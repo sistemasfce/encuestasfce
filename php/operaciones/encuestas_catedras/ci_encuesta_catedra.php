@@ -87,6 +87,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
         toba::memoria()->set_dato('comision',$comision);
         toba::memoria()->set_dato('datos_comision',$datos_comision);
 
+        
         /*
         $terminado = toba::memoria()->get_dato('terminado'); 
         if ($terminado == 1) {
