@@ -29,7 +29,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
         try {
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
-            $hash = toba::memoria()->get_dato('hash');
+            $hash = toba::memoria()->get_dato_operacion('hash');
             $cliente = toba::servicio_web_rest('guarani')->guzzle();
             $request =  $cliente->put('encuestascatedras/'. $hash);
             self::validar_response($request, 204, __FUNCTION__);
@@ -52,9 +52,9 @@ class ci_encuesta_catedra extends encuestasfce_ci
     function conf__form(encuestasfce_ei_formulario $form)
     { 
         $param = toba::memoria()->get_parametros();
-        ei_arbol($param);
+        self::debug_to_console( $param );
         $hash = $param['c']; 
-        toba::memoria()->set_dato('hash',$hash);
+        toba::memoria()->set_dato_operacion('hash',$hash);
 
         if (!isset($hash)) {
             return;
@@ -97,7 +97,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
         //Recibe por parametro el numero de comision y con un webservice busca los docentes
         //Carga los docentes en el form_ml
          
-        $hash = toba::memoria()->get_dato('hash');
+        $hash = toba::memoria()->get_dato_operacion('hash');
         if (!isset($hash))
             return;
 
@@ -133,5 +133,18 @@ class ci_encuesta_catedra extends encuestasfce_ci
         }
 
     }
+    
+    function debug_to_console( $data, $context = 'Debug in Console' ) {
+
+    // Buffering to solve problems frameworks, like header() in this and not a solid return.
+    ob_start();
+
+    $output  = 'console.info( \'' . $context . ':\' );';
+    $output .= 'console.log(' . json_encode( $data ) . ');';
+    $output  = sprintf( '<script>%s</script>', $output );
+
+    echo $output;
+}
+    
 }
 ?>
