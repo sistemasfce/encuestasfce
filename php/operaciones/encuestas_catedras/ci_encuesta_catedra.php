@@ -34,11 +34,10 @@ class ci_encuesta_catedra extends encuestasfce_ci
             $request =  $cliente->put('encuestascatedras/'. $hash);
             self::validar_response($request, 204, __FUNCTION__);
             toba::notificacion()->agregar('Los datos se guardaron correctamente.','info');
-            //toba::memoria()->set_dato('terminado',1); 
         } catch (Exception $e) {
-            echo 'Error: '.  $e->getMessage(). "\n";
+            echo 'Error en put: '.  $e->getMessage(). "\n";
         }
-        //toba::vinculador()->navegar_a("encuestasfce","280000003");
+        toba::vinculador()->navegar_a("encuestasfce","280000182");
     }
 
     function evt__cancelar()
@@ -65,25 +64,17 @@ class ci_encuesta_catedra extends encuestasfce_ci
         // con este hash tengo que obtener el id comision y el id persona y devolverlos
         $cliente = toba::servicio_web_rest('guarani')->guzzle();
         $request = $cliente->get('encuestascatedras/'. $hash);
-        //$response = $request->send();
         $encuesta = rest_decode($request->json());       
 
         $comision = $encuesta['comision'];
         $persona = $encuesta['persona'];                
-
-        //--------------------------------------------------------------	
-        //$cliente = toba::servicio_web_rest('guarani')->guzzle();
+	
         $request = $cliente->get('comisiones/'. $comision);
-        //$response = $request->send();
         $datos_comision = rest_decode($request->json());
 
         toba::memoria()->set_dato('persona',$persona);
         toba::memoria()->set_dato('comision',$comision);
         toba::memoria()->set_dato('datos_comision',$datos_comision);
-       
-        
-        //$datos_comision = toba::memoria()->get_dato('datos_comision');
-        //$persona = toba::memoria()->get_dato('persona');
 
         //--------------------------------------------------------------		
         $datos['comision'] = $datos_comision['comision'];
