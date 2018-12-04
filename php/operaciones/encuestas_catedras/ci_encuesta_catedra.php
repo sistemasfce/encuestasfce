@@ -52,6 +52,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
     function conf__form(encuestasfce_ei_formulario $form)
     { 
         $param = toba::memoria()->get_parametros();
+        ei_arbol($param);
         $hash = $param['c']; 
         toba::memoria()->set_dato('hash',$hash);
 
