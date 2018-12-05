@@ -3,10 +3,8 @@ class ci_encuesta_catedra extends encuestasfce_ci
 {
     protected static $cliente_guarani;
 
-
     //  ejemplo de ingreso a una encuesta
     //  http://guarani.sistemasfce.com.ar/encuestasfce/1.0/?ai=encuestasfce||280000002&tcm=previsualizacion&tm=1&c=16d5f6ad0b0326ef992aad5ec5f13c2de76c3699
-
 
     //-------------------------------------------------------------------------
     function relacion()
@@ -23,7 +21,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
     //-----------------------------------------------------------------------------------
     //---- Eventos ----------------------------------------------------------------------
     //-----------------------------------------------------------------------------------
-
+/*
     function conf()
     {
         $param = toba::memoria()->get_parametros();
@@ -31,24 +29,23 @@ class ci_encuesta_catedra extends encuestasfce_ci
         $hash = $param['c']; 
         toba::memoria()->set_dato('hash',$hash);
     }
-    
+*/    
     function evt__procesar()
     {
         try {
-
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
-            $hash = toba::memoria()->get_dato('hash');
-            $cliente = toba::servicio_web_rest('guarani')->guzzle();
-            $request =  $cliente->put('encuestascatedras/'. $hash);
-            self::validar_response($request, 204, __FUNCTION__);
+            toba::consulta_php('co_guarani')->put_encuesta($hash);
+            //$hash = toba::memoria()->get_dato('hash');
+            //$cliente = toba::servicio_web_rest('guarani')->guzzle();
+            //$request =  $cliente->put('encuestascatedras/'. $hash);
+            //self::validar_response($request, 204, __FUNCTION__);
             toba::notificacion()->agregar('Los datos se guardaron correctamente.','info');
             toba::vinculador()->navegar_a("encuestasfce","280000182");
         } catch (Exception $e) {
             toba::logger()->error('Error en put, el hash es: '.$hash);
             echo 'Error en put: '.  $e->getMessage(). "\n";
         }
-        
     }
 
     function evt__cancelar()
@@ -62,10 +59,10 @@ class ci_encuesta_catedra extends encuestasfce_ci
 
     function conf__form(encuestasfce_ei_formulario $form)
     { 
-        //$param = toba::memoria()->get_parametros();
-        //$hash = $param['c']; 
+        $param = toba::memoria()->get_parametros();
+        $hash = $param['c']; 
         //toba::memoria()->set_dato('hash',$hash);
-        $hash = toba::memoria()->get_dato('hash');
+        //$hash = toba::memoria()->get_dato('hash');
         if (!isset($hash)) {
             return;
         }
@@ -73,19 +70,21 @@ class ci_encuesta_catedra extends encuestasfce_ci
         //--------------------------------------------------------------
         // llega por parametro el hash utilizado por la tabla gde_encuestas_pendientes
         // con este hash tengo que obtener el id comision y el id persona y devolverlos
-        $cliente = toba::servicio_web_rest('guarani')->guzzle();
-        $request = $cliente->get('encuestascatedras/'. $hash);
-        $encuesta = rest_decode($request->json());       
+        //$cliente = toba::servicio_web_rest('guarani')->guzzle();
+        //$request = $cliente->get('encuestascatedras/'. $hash);
+        //$encuesta = rest_decode($request->json());    
+        $encuesta = toba::consulta_php('co_guarani')->get_encuestas($hash);
 
         $comision = $encuesta['comision'];
         $persona = $encuesta['persona'];                
 	
-        $request = $cliente->get('comisiones/'. $comision);
-        $datos_comision = rest_decode($request->json());
+        //$request = $cliente->get('comisiones/'. $comision);
+        //$datos_comision = rest_decode($request->json());
+        
+        $datos_comision = toba::consulta_php('co_guarani')->get_comision($comision);
 
         toba::memoria()->set_dato('persona',$persona);
         toba::memoria()->set_dato('comision',$comision);
-        toba::memoria()->set_dato('datos_comision',$datos_comision);
 
         //--------------------------------------------------------------		
         $datos['comision'] = $datos_comision['comision'];
@@ -106,15 +105,15 @@ class ci_encuesta_catedra extends encuestasfce_ci
     {
         //Recibe por parametro el numero de comision y con un webservice busca los docentes
         //Carga los docentes en el form_ml
-         
-        $hash = toba::memoria()->get_dato('hash');
+        $param = toba::memoria()->get_parametros();
+        $hash = $param['c']; 
+        
+        //$hash = toba::memoria()->get_dato('hash');
         if (!isset($hash))
             return;
 
         $comision = toba::memoria()->get_dato('comision');	
-        $datos_comision = toba::memoria()->get_dato('datos_comision');
-
-        $docentes = $datos_comision['docentes'];
+        $docentes = toba::consulta_php('co_guarani')->get_docentes_comision($comision);
 
         if (!isset($docentes[0])) {
             return;
@@ -134,27 +133,14 @@ class ci_encuesta_catedra extends encuestasfce_ci
     {
         $this->tabla('encuestas_catedras_docentes')->procesar_filas($datos);
     }
-
+    /*
     protected static function validar_response($response, $status, $desc_error){
         if($response->getStatusCode() != $status){
             toba::logger()->error('Error en '. $desc_error . ". Se esperaba $status y se obtuvo {$response->getStatusCode()}");
             toba::logger()->var_dump(rest_decode($response->json()));
             throw guarani::error(self::get_mensaje_descripcion($response));
         }
-
-    }
-    
-    function debug_to_console( $data, $context = 'Debug in Console' ) {
-
-    // Buffering to solve problems frameworks, like header() in this and not a solid return.
-    ob_start();
-
-    $output  = 'console.info( \'' . $context . ':\' );';
-    $output .= 'console.log(' . json_encode( $data ) . ');';
-    $output  = sprintf( '<script>%s</script>', $output );
-
-    echo $output;
-}
-    
+    }    
+    */
 }
 ?>
