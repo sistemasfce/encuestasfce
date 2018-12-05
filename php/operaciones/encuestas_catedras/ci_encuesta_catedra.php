@@ -33,6 +33,8 @@ class ci_encuesta_catedra extends encuestasfce_ci
     function evt__procesar()
     {
         try {
+            $param = toba::memoria()->get_parametros();
+            $hash = $param['c']; 
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
             toba::consulta_php('co_guarani')->put_encuesta($hash);
