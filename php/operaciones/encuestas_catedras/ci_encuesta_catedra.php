@@ -43,7 +43,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
             toba::notificacion()->agregar('Los datos se guardaron correctamente.','info');
             toba::vinculador()->navegar_a("encuestasfce","280000182");
         } catch (Exception $e) {
-            toba::logger()->error('Error en put, el hash es: '.$hash);
+            toba::logger()->error('Error en put, el hash es: '.$hash.'--'.$e->getMessage());
             echo 'Error en put: '.  $e->getMessage(). "\n";
         }
     }
