@@ -21,20 +21,18 @@ class ci_encuesta_catedra extends encuestasfce_ci
     //-----------------------------------------------------------------------------------
     //---- Eventos ----------------------------------------------------------------------
     //-----------------------------------------------------------------------------------
-/*
+
     function conf()
     {
         $param = toba::memoria()->get_parametros();
-        self::debug_to_console( $param );
         $hash = $param['c']; 
         toba::memoria()->set_dato('hash',$hash);
     }
-*/    
+   
     function evt__procesar()
     {
         try {
-            $param = toba::memoria()->get_parametros();
-            $hash = $param['c']; 
+            $hash = toba::memoria()->get_dato('hash');
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
             toba::consulta_php('co_guarani')->put_encuesta($hash);
@@ -61,8 +59,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
 
     function conf__form(encuestasfce_ei_formulario $form)
     { 
-        $param = toba::memoria()->get_parametros();
-        $hash = $param['c']; 
+        $hash = toba::memoria()->get_dato('hash');
         //toba::memoria()->set_dato('hash',$hash);
         //$hash = toba::memoria()->get_dato('hash');
         if (!isset($hash)) {
@@ -107,10 +104,8 @@ class ci_encuesta_catedra extends encuestasfce_ci
     {
         //Recibe por parametro el numero de comision y con un webservice busca los docentes
         //Carga los docentes en el form_ml
-        $param = toba::memoria()->get_parametros();
-        $hash = $param['c']; 
+        $hash = toba::memoria()->get_dato('hash');
         
-        //$hash = toba::memoria()->get_dato('hash');
         if (!isset($hash))
             return;
 
