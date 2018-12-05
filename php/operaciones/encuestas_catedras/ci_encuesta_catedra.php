@@ -35,7 +35,7 @@ class ci_encuesta_catedra extends encuestasfce_ci
             $hash = toba::memoria()->get_dato('hash');
             $this->dep('relacion')->sincronizar();
             $this->dep('relacion')->resetear();
-            toba::consulta_php('co_guarani')->put_encuesta($hash);
+            $a = toba::consulta_php('co_guarani')->put_encuesta($hash);
             //$hash = toba::memoria()->get_dato('hash');
             //$cliente = toba::servicio_web_rest('guarani')->guzzle();
             //$request =  $cliente->put('encuestascatedras/'. $hash);
