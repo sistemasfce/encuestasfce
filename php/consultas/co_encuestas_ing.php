@@ -174,7 +174,14 @@ class co_encuestas_ing
                             ";
             return toba::db()->consultar($sql);
     }
-        
+
+    function get_ciclos_lectivos()
+    {
+            $sql = "SELECT *
+                            FROM public.ciclos_lectivos
+                            ";
+            return toba::db()->consultar($sql);
+    }
     
     
 }

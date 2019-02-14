@@ -192,7 +192,7 @@ INSERT INTO apex_objeto_ei_filtro_col (objeto_ei_filtro_col, objeto_ei_filtro, o
 	'encuestasfce', --objeto_ei_filtro_proyecto
 	'opciones', --tipo
 	'anio_lectivo', --nombre
-	'anio_lectivo', --expresion
+	'Año lectivo', --expresion
 	'Año', --etiqueta
 	NULL, --descripcion
 	'0', --obligatorio
@@ -201,16 +201,16 @@ INSERT INTO apex_objeto_ei_filtro_col (objeto_ei_filtro_col, objeto_ei_filtro, o
 	NULL, --estado_defecto
 	'0', --opciones_es_multiple
 	'ef_combo', --opciones_ef
-	NULL, --carga_metodo
+	'get_ciclos_lectivos', --carga_metodo
 	NULL, --carga_clase
 	NULL, --carga_include
 	NULL, --carga_dt
-	NULL, --carga_consulta_php
+	'280000019', --carga_consulta_php
 	NULL, --carga_sql
 	'encuestasfce', --carga_fuente
-	'2018,2017,2016,2015,2014,2013,2012', --carga_lista
-	NULL, --carga_col_clave
-	NULL, --carga_col_desc
+	NULL, --carga_lista
+	'ciclo_lectivo', --carga_col_clave
+	'ciclo_lectivo', --carga_col_desc
 	'0', --carga_permite_no_seteado
 	NULL, --carga_no_seteado
 	'0', --carga_no_seteado_ocultar
