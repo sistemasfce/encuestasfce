@@ -192,7 +192,7 @@ INSERT INTO apex_objeto_ei_filtro_col (objeto_ei_filtro_col, objeto_ei_filtro, o
 	'encuestasfce', --objeto_ei_filtro_proyecto
 	'opciones', --tipo
 	'anio_lectivo', --nombre
-	'Año lectivo', --expresion
+	'anio_lectivo', --expresion
 	'Año', --etiqueta
 	NULL, --descripcion
 	'0', --obligatorio
