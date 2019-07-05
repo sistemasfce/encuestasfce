@@ -181,7 +181,6 @@ class co_encuestas_ing
                             FROM public.ciclos_lectivos
                             ";
             return toba::db()->consultar($sql);
-    }
-    
+    }   
     
 }

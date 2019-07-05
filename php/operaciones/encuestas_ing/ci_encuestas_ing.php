@@ -21,7 +21,10 @@ class ci_encuestas_ing extends encuestasfce_ci
 
     function conf__cuadro(encuestasfce_ei_cuadro $cuadro)
     {
-        $datos = toba::consulta_php('co_encuestas_ing')->get_encuestas();
+        $where = $this->dep('filtro')->get_sql_where();
+        if ($where == '1=1')
+            $where = 'anio_lectivo = '. date('Y');
+        $datos = toba::consulta_php('co_encuestas_ing')->get_encuestas($where);
         $cuadro->set_datos($datos);
     }
 
