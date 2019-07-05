@@ -45,6 +45,7 @@ class ci_cargar_encuesta extends encuestasfce_ci
     {
         $this->dep('relacion')->sincronizar();
         $this->dep('relacion')->resetear();
+        toba::notificacion()->agregar('Gracias por completar la encuesta de ingresante', 'info');
         $this->set_pantalla('seleccion');
     }
     
