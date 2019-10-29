@@ -16,8 +16,8 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	'toba', --clase_proyecto
 	'toba_ci', --clase
 	'280000001', --punto_montaje
-	NULL, --subclase
-	NULL, --subclase_archivo
+	'ci_encuesta_depto_contable', --subclase
+	'operaciones/encuestas_fce/ci_encuesta_depto_contable.php', --subclase_archivo
 	NULL, --objeto_categoria_proyecto
 	NULL, --objeto_categoria
 	'Encuesta depto Contable', --nombre

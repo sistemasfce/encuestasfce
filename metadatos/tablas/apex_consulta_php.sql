@@ -31,4 +31,13 @@ INSERT INTO apex_consulta_php (proyecto, consulta_php, clase, archivo_clase, arc
 	NULL, --descripcion
 	'280000001'  --punto_montaje
 );
+INSERT INTO apex_consulta_php (proyecto, consulta_php, clase, archivo_clase, archivo, descripcion, punto_montaje) VALUES (
+	'encuestasfce', --proyecto
+	'280000034', --consulta_php
+	'co_encuestas_fce', --clase
+	'co_encuestas_fce', --archivo_clase
+	'consultas/co_encuestas_fce.php', --archivo
+	NULL, --descripcion
+	'280000001'  --punto_montaje
+);
 --- FIN Grupo de desarrollo 280
