@@ -1,5 +1,5 @@
 ------------------------------------------------------------
---[280000138]--  Encuestas FCE 
+--[280000269]--  Encuesta depto Contable 
 ------------------------------------------------------------
 
 ------------------------------------------------------------
@@ -10,26 +10,26 @@
 INSERT INTO apex_item (item_id, proyecto, item, padre_id, padre_proyecto, padre, carpeta, nivel_acceso, solicitud_tipo, pagina_tipo_proyecto, pagina_tipo, actividad_buffer_proyecto, actividad_buffer, actividad_patron_proyecto, actividad_patron, nombre, descripcion, punto_montaje, actividad_accion, menu, orden, solicitud_registrar, solicitud_obs_tipo_proyecto, solicitud_obs_tipo, solicitud_observacion, solicitud_registrar_cron, prueba_directorios, zona_proyecto, zona, zona_orden, zona_listar, imagen_recurso_origen, imagen, parametro_a, parametro_b, parametro_c, publico, redirecciona, usuario, exportable, creacion, retrasar_headers) VALUES (
 	NULL, --item_id
 	'encuestasfce', --proyecto
-	'280000138', --item
+	'280000269', --item
 	NULL, --padre_id
 	'encuestasfce', --padre_proyecto
-	'1', --padre
-	'1', --carpeta
+	'280000138', --padre
+	'0', --carpeta
 	'0', --nivel_acceso
-	NULL, --solicitud_tipo
-	NULL, --pagina_tipo_proyecto
-	NULL, --pagina_tipo
+	'web', --solicitud_tipo
+	'toba', --pagina_tipo_proyecto
+	'vacio', --pagina_tipo
 	NULL, --actividad_buffer_proyecto
 	NULL, --actividad_buffer
 	NULL, --actividad_patron_proyecto
 	NULL, --actividad_patron
-	'Encuestas FCE', --nombre
+	'Encuesta depto Contable', --nombre
 	NULL, --descripcion
-	NULL, --punto_montaje
+	'280000001', --punto_montaje
 	NULL, --actividad_accion
-	'1', --menu
-	'2', --orden
-	NULL, --solicitud_registrar
+	'0', --menu
+	NULL, --orden
+	'0', --solicitud_registrar
 	NULL, --solicitud_obs_tipo_proyecto
 	NULL, --solicitud_obs_tipo
 	NULL, --solicitud_observacion
@@ -38,17 +38,29 @@ INSERT INTO apex_item (item_id, proyecto, item, padre_id, padre_proyecto, padre,
 	NULL, --zona_proyecto
 	NULL, --zona
 	NULL, --zona_orden
-	NULL, --zona_listar
+	'0', --zona_listar
 	'apex', --imagen_recurso_origen
 	NULL, --imagen
 	NULL, --parametro_a
 	NULL, --parametro_b
 	NULL, --parametro_c
-	NULL, --publico
+	'1', --publico
 	NULL, --redirecciona
 	NULL, --usuario
-	NULL, --exportable
-	'2017-12-07 13:43:35', --creacion
+	'0', --exportable
+	'2019-10-28 13:28:53', --creacion
 	'0'  --retrasar_headers
 );
 --- FIN Grupo de desarrollo 280
+
+------------------------------------------------------------
+-- apex_item_objeto
+------------------------------------------------------------
+INSERT INTO apex_item_objeto (item_id, proyecto, item, objeto, orden, inicializar) VALUES (
+	NULL, --item_id
+	'encuestasfce', --proyecto
+	'280000269', --item
+	'280001046', --objeto
+	'0', --orden
+	NULL  --inicializar
+);
