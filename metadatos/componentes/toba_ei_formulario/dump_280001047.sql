@@ -306,7 +306,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --carga_consulta_php
 	NULL, --carga_sql
 	'encuestasfce', --carga_fuente
-	'1/No tengo interés,2/No sé cómo hacerlo,3/No creo que aporte a la formación de los alumnos,4/No creo que aporte al desarrollo personal,5/No sé sobre que investigar,6/Otros', --carga_lista
+	'1/No tengo interés,2/No sé cómo hacerlo,3/No creo que aporte a la formación de los alumnos,4/No creo que aporte al desarrollo personal,5/No sé sobre que investigar,6/Otros (especificar)', --carga_lista
 	NULL, --carga_col_clave
 	NULL, --carga_col_desc
 	NULL, --carga_maestros
@@ -546,7 +546,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --carga_consulta_php
 	NULL, --carga_sql
 	'encuestasfce', --carga_fuente
-	'1/No tengo interés,2/No sé cómo hacerlo,3/No creo que aporte a la formación de los alumnos,4/No creo que aporte al desarrollo personal,5/No sé sobre que temáticas desarrollar la extensión,6/Otro', --carga_lista
+	'1/No tengo interés,2/No sé cómo hacerlo,3/No creo que aporte a la formación de los alumnos,4/No creo que aporte al desarrollo personal,5/No sé sobre que temáticas desarrollar la extensión,6/Otros (especificar)', --carga_lista
 	NULL, --carga_col_clave
 	NULL, --carga_col_desc
 	NULL, --carga_maestros
@@ -706,7 +706,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --carga_consulta_php
 	NULL, --carga_sql
 	'encuestasfce', --carga_fuente
-	'1/Transparencia y control de la corrupción,2/Asociaciones y entidades intermedias,3/Sistemas y estructuras tributarias y previsional,4/Análisis de información contable', --carga_lista
+	'1/Transparencia y control de la corrupción,2/Organizaciones de la sociedad civil,3/Sistemas y estructuras tributarias y previsional,4/Análisis de información contable', --carga_lista
 	NULL, --carga_col_clave
 	NULL, --carga_col_desc
 	NULL, --carga_maestros
