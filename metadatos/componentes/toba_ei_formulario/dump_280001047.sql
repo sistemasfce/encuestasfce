@@ -122,7 +122,7 @@ INSERT INTO apex_objeto_ut_formulario (objeto_ut_formulario_proyecto, objeto_ut_
 	NULL, --analisis_cambios
 	'0', --no_imprimir_efs_sin_estado
 	'0', --resaltar_efs_con_estado
-	'<p align="center"><span style="font-size:12px;">Facultad de Ciencias Econ&oacute;micas - UNPSJB</span></p><p align="center"><span style="font-size:20px;"><strong>ENCUESTA DE OPINION</strong></span></p><p><strong><span style="font-size:16px;">En el marco del proceso de acreditaci&oacute;n de la carrera de Contador P&uacute;blico, y con el fin de dise&ntilde;ar acciones para promover la investigaci&oacute;n, extensi&oacute;n y profundizaci&oacute;n disciplinar del &aacute;rea contable, le solicitamos tenga a bien responder las siguientes preguntas.</span></strong></p><p><strong><span style="font-size:16px;">Nombre y apellido:</span></strong></p>
+	'<p align="center"><span style="font-size:12px;">Facultad de Ciencias Econ&oacute;micas - UNPSJB</span></p><p align="center"><span style="font-size:20px;"><strong>ENCUESTA DE OPINION</strong></span></p><p><strong><span style="font-size:16px;">Nombre y apellido:</span></strong></p>
 <table>
 	<tbody>
 		<tr>

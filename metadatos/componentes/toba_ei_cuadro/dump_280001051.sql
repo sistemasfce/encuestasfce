@@ -127,7 +127,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001980', --objeto_cuadro_col
 	'inv_causa', --clave
 	'2', --orden
-	'Inv causa', --titulo
+	'causas no investigación', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -158,7 +158,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001981', --objeto_cuadro_col
 	'inv_causa_otro', --clave
 	'3', --orden
-	'Inv causa otro', --titulo
+	'Otro', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -189,7 +189,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001982', --objeto_cuadro_col
 	'inv_linea', --clave
 	'4', --orden
-	'Inv linea', --titulo
+	'lineas de investigación', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -220,7 +220,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001983', --objeto_cuadro_col
 	'ext_causa', --clave
 	'5', --orden
-	'Ext causa', --titulo
+	'causas no extensión', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -251,7 +251,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001984', --objeto_cuadro_col
 	'ext_causa_otro', --clave
 	'6', --orden
-	'Ext causa otro', --titulo
+	'Otro', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -282,7 +282,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001985', --objeto_cuadro_col
 	'ext_linea', --clave
 	'7', --orden
-	'Ext linea', --titulo
+	'lineas de extensión', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -313,7 +313,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001986', --objeto_cuadro_col
 	'profundizar', --clave
 	'8', --orden
-	'Profundizar', --titulo
+	'lineas profundización disciplinar', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
@@ -344,7 +344,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001987', --objeto_cuadro_col
 	'referentes', --clave
 	'9', --orden
-	'Referentes', --titulo
+	'Referentes académicos', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
