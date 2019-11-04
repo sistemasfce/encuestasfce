@@ -126,7 +126,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001980', --objeto_cuadro_col
 	'inv_causa', --clave
-	'2', --orden
+	'3', --orden
 	'causas no investigación', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -157,7 +157,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001981', --objeto_cuadro_col
 	'inv_causa_otro', --clave
-	'3', --orden
+	'4', --orden
 	'Otro', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -188,7 +188,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001982', --objeto_cuadro_col
 	'inv_linea', --clave
-	'4', --orden
+	'5', --orden
 	'lineas de investigación', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -219,7 +219,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001983', --objeto_cuadro_col
 	'ext_causa', --clave
-	'5', --orden
+	'6', --orden
 	'causas no extensión', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -250,7 +250,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001984', --objeto_cuadro_col
 	'ext_causa_otro', --clave
-	'6', --orden
+	'7', --orden
 	'Otro', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -281,7 +281,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001985', --objeto_cuadro_col
 	'ext_linea', --clave
-	'7', --orden
+	'8', --orden
 	'lineas de extensión', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -312,7 +312,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001986', --objeto_cuadro_col
 	'profundizar', --clave
-	'8', --orden
+	'9', --orden
 	'lineas profundización disciplinar', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
@@ -343,8 +343,39 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'280001051', --objeto_cuadro
 	'280001987', --objeto_cuadro_col
 	'referentes', --clave
-	'9', --orden
+	'10', --orden
 	'Referentes académicos', --titulo
+	'ei-cuadro-col-tit', --estilo_titulo
+	'4', --estilo
+	NULL, --ancho
+	'1', --formateo
+	NULL, --vinculo_indice
+	NULL, --no_ordenar
+	NULL, --mostrar_xls
+	NULL, --mostrar_pdf
+	NULL, --pdf_propiedades
+	NULL, --desabilitado
+	NULL, --total
+	NULL, --total_cc
+	NULL, --usar_vinculo
+	NULL, --vinculo_carpeta
+	NULL, --vinculo_item
+	NULL, --vinculo_popup
+	NULL, --vinculo_popup_param
+	NULL, --vinculo_target
+	NULL, --vinculo_celda
+	NULL, --vinculo_servicio
+	'0', --permitir_html
+	NULL, --grupo
+	NULL  --evento_asociado
+);
+INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro, objeto_cuadro_col, clave, orden, titulo, estilo_titulo, estilo, ancho, formateo, vinculo_indice, no_ordenar, mostrar_xls, mostrar_pdf, pdf_propiedades, desabilitado, total, total_cc, usar_vinculo, vinculo_carpeta, vinculo_item, vinculo_popup, vinculo_popup_param, vinculo_target, vinculo_celda, vinculo_servicio, permitir_html, grupo, evento_asociado) VALUES (
+	'encuestasfce', --objeto_cuadro_proyecto
+	'280001051', --objeto_cuadro
+	'280002088', --objeto_cuadro_col
+	'sede', --clave
+	'2', --orden
+	'Sede', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho

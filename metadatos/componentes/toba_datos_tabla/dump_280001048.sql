@@ -209,4 +209,18 @@ INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, colum
 	'0', --externa
 	'encuestas_ext_inv'  --tabla
 );
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280001048', --objeto
+	'280001281', --col_id
+	'sede', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_ext_inv'  --tabla
+);
 --- FIN Grupo de desarrollo 280
