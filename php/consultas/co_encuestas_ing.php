@@ -179,6 +179,7 @@ class co_encuestas_ing
     {
             $sql = "SELECT *
                             FROM public.ciclos_lectivos
+                            ORDER BY ciclo_lectivo::Int DESC
                             ";
             return toba::db()->consultar($sql);
     }   
