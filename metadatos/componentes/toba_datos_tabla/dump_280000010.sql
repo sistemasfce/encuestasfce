@@ -489,4 +489,102 @@ INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, colum
 	'0', --externa
 	'encuestas_catedras'  --tabla
 );
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001298', --col_id
+	'virtual1', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001299', --col_id
+	'virtual1_otro', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001300', --col_id
+	'virtual2', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001301', --col_id
+	'virtual3', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001302', --col_id
+	'virtual3_otro', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001303', --col_id
+	'virtual4', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'encuestasfce', --objeto_proyecto
+	'280000010', --objeto
+	'280001304', --col_id
+	'virtual4_otro', --columna
+	'C', --tipo
+	'0', --pk
+	'', --secuencia
+	'50', --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'encuestas_catedras'  --tabla
+);
 --- FIN Grupo de desarrollo 280
