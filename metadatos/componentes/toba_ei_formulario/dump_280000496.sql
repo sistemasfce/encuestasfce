@@ -208,7 +208,7 @@ INSERT INTO apex_objeto_ut_formulario (objeto_ut_formulario_proyecto, objeto_ut_
 		</tr>
 		<tr>
 			<td colspan="2">
-				<strong><span style="font-size: small;">Contador p&uacute;blico (Tw - Com. Riv. - Esq y Ush)</span></strong></td>
+				<strong><span style="font-size: small;">Contador p&uacute;blico (Tw - Com. Riv. - Esq )</span></strong></td>
 			<td colspan="2">
 				[ef id=pregunta_2_op1]</td>
 		</tr>
